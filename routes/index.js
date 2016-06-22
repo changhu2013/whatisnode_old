@@ -1,9 +1,9 @@
-var router = require('koa-router')();
+var config = require('../config')
+var router = require('koa-router')(config.router || {})
+var home = require('./home');
+var users = require('./users');
 
-router.get('/', function *(next) {
-  yield this.render('index', {
-    title: 'What is Node!'
-  });
-});
+router.use(home.routes());
+router.use(users.routes());
 
-module.exports = router;
+module.exports = router
