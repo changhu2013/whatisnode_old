@@ -1,9 +1,9 @@
 var config = require('../config')
 var router = require('koa-router')(config.router || {})
 var home = require('./home');
-var users = require('./users');
+var admin = require('./admin');
 
 router.use(home.routes());
-router.use(users.routes());
+router.use(admin.routes());
 
 module.exports = router
